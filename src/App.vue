@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <tree :tree-data="tree"></tree>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tree from "./components/Tree";
 
 export default {
-  name: 'app',
+  data: () => ({
+    tree: {
+      label: "A cool folder",
+      children: [
+        {
+          label: "A cool sub-folder 1",
+          children: [
+            { label: "A cool sub-sub-folder 1" },
+            { label: "A cool sub-sub-folder 2" }
+          ]
+        },
+        { label: "This one is not that cool" }
+      ]
+    }
+  }),
   components: {
-    HelloWorld
+    Tree
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
